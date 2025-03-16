@@ -1,0 +1,55 @@
+[33mcommit 5e31cb6d233a3be65a62dcd1330da56a3a0971c1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Sun Mar 16 19:20:21 2025 +0530
+
+    testing dvc
+
+[33mcommit 8d56c0065b3aab1e5e83cd7bd3c1239c0323aafa[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Sun Mar 16 19:06:10 2025 +0530
+
+    Git unTracking
+
+[33mcommit d4cbeb61aeb8a686b444a9b9b403180e3971759a[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Sun Mar 16 19:02:10 2025 +0530
+
+    DVC
+
+[33mcommit 71740093ba2e66ff018b4ba4fe5afccf41f97f5b[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Sun Mar 16 18:54:43 2025 +0530
+
+    Updated the train and test dataset
+
+[33mcommit ba31b6525f34699152cb1a8ea54b73891b75b6d4[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Sat Mar 15 19:58:04 2025 +0530
+
+    Data Ingestion
+
+[33mcommit 45eb2d6e1435940edc3c2ba2b8750cbbcda63ca6[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Tue Mar 4 15:21:46 2025 +0530
+
+    exception code edit and logging
+
+[33mcommit f5ee95dec98c42b02eefb1229a2f0ad1d3560b29[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Mon Mar 3 21:45:57 2025 +0530
+
+    Created a template for the ml flow
+
+[33mcommit c23e2bd092e5418be35e8ac15c5b167279a70125[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Mon Mar 3 18:57:39 2025 +0530
+
+    Create .gitignore
+    
+    Added gitignore file
+
+[33mcommit 85c8cd0f873a34e84f5785162aaaa147740ec029[m
+Author: Anay Sumant Joshi <125566681+Ghost2804@users.noreply.github.com>
+Date:   Mon Mar 3 18:52:00 2025 +0530
+
+    first commit
