@@ -7,6 +7,8 @@ from sklearn.model_selection import train_test_split
 
 from src.mlproject.utils import read_sql_data
 
+from src.mlproject.components.data_transformation import DataTransformation
+
 
 from dataclasses import dataclass
 
@@ -49,3 +51,12 @@ class DataIngestion:
 
         except Exception as e:
             raise CustomException(e,sys)
+        
+
+if __name__ == "__main__":
+    obj = DataIngestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+
+    data_trainformation = DataTransformation()
+    data_trainformation.initiateinitiate_data_transformation(train_data,test_data)
+    
