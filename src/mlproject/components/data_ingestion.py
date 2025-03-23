@@ -27,8 +27,8 @@ class DataIngestion:
     def initiate_data_ingestion(self):
 
         try:
-            df = read_sql_data()
-            logging.info("Reading from SQL database")
+            df = pd.read_csv(r'C:\Users\AnayJoshi28\Desktop\Projects\Data Scientist Projects\ML_OPS\NEW_project_1\notebook\data\raw.csv')
+            logging.info("Reading from raw dataset")
 
             if df is None or df.empty:
                 logging.error("Error: read_sql_data() returned None or an empty DataFrame.")
