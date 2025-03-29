@@ -1,30 +1,43 @@
-from src.mlproject.logger import logging
-from src.mlproject.exception import CustomException
-import sys
-from src.mlproject.components.data_ingestion import DataIngestion
-from src.mlproject.components.data_ingestion import DataIngestionConfig
-from src.mlproject.components.data_transformation import DataTransformation
-from src.mlproject.components.model_tranier import ModelTrainer
+from flask import Flask,request,render_template
+import numpy as np
+import pandas as pd
+
+from sklearn.preprocessing import StandardScaler
+from src.mlproject.pipelines.prediction_pipeline import CustomData,PredictPipeline
+
+application=Flask(__name__)
+
+app=application
+
+## Route for a home page
+
+@app.route('/')
+def index():
+    return render_template('index.html') 
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        data = CustomData(
+            age=int(request.form.get('age')),
+            anaemia=int(request.form.get('anaemia')),
+            creatinine_phosphokinase=int(request.form.get('creatinine_phosphokinase')),
+            diabetes=int(request.form.get('diabetes')),
+            ejection_fraction=int(request.form.get('ejection_fraction')),
+            high_blood_pressure=int(request.form.get('high_blood_pressure')),
+            platelets=float(request.form.get('platelets')),
+            serum_creatinine=float(request.form.get('serum_creatinine')),
+            serum_sodium=int(request.form.get('serum_sodium')),
+            sex=int(request.form.get('sex')),
+            smoking=int(request.form.get('smoking')),
+            time=int(request.form.get('time'))
+        )
+
+        pred_df = data.get_data_as_data_frame()
+        predict_pipeline = PredictPipeline()
+        prediction = predict_pipeline.predict(pred_df)
+
+        return render_template('index.html', prediction=prediction[0])
 
 if __name__ == "__main__":
-    logging.info("The Exception has started")
-
-    try:
-        #data_ingestion_config = DataIngestionConfig()
-        # data_ingestion = DataIngestion()
-        # data_ingestion.initiate_data_ingestion()
-
-        obj = DataIngestion()
-        train_data, test_data = obj.initiate_data_ingestion()
-
-        data_transformation = DataTransformation()
-        train_arr, test_arr = data_transformation.initiate_data_transformation(train_data, test_data)
-
-        model_trainer = ModelTrainer()
-        accuracy = model_trainer.initiate_model_trainer(train_arr, test_arr)
-        print(f"Best model accuracy: {accuracy}")
-
-        
-    except Exception as e:
-        logging.info("Custom Exception")
-        raise CustomException(e,sys)
+    app.run(debug=True)
