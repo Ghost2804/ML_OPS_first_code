@@ -5,43 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Form</title>
     <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            padding: 20px;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
+
+        /* Form container */
         .container {
-            max-width: 500px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
+            width: 100%;
+            max-width: 550px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
         label {
-            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #444;
         }
-        input, select {
+
+        input,
+        select {
             width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: blue;
-            color: white;
             padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
         }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        select:invalid {
+            color: #999;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
         .result {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border-radius: 5px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
@@ -52,56 +96,62 @@
     <div class="container">
         <h2>Prediction Form</h2>
         <form action="/predict" method="post">
+
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required>
+            <input type="number" id="age" name="age" required placeholder="Enter your age">
 
             <label for="anaemia">Do you have Anaemia?</label>
-            <select id="anaemia" name="anaemia">
+            <select id="anaemia" name="anaemia" required>
+                <option value="" disabled selected>Select if you have Anaemia</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
 
             <label for="creatinine_phosphokinase">Creatinine Phosphokinase:</label>
-            <input type="number" id="creatinine_phosphokinase" name="creatinine_phosphokinase" required>
+            <input type="number" id="creatinine_phosphokinase" name="creatinine_phosphokinase" required placeholder="Enter your creatinine phosphokinase level">
 
             <label for="diabetes">Do you have Diabetes?</label>
-            <select id="diabetes" name="diabetes">
+            <select id="diabetes" name="diabetes" required>
+                <option value="" disabled selected>Select if you have Diabetes</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
 
             <label for="ejection_fraction">Ejection Fraction:</label>
-            <input type="number" id="ejection_fraction" name="ejection_fraction" required>
+            <input type="number" id="ejection_fraction" name="ejection_fraction" required placeholder="Enter your ejection fraction (%)">
 
             <label for="high_blood_pressure">Do you have High Blood Pressure?</label>
-            <select id="high_blood_pressure" name="high_blood_pressure">
+            <select id="high_blood_pressure" name="high_blood_pressure" required>
+                <option value="" disabled selected>Select if you have High Blood Pressure</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
 
             <label for="platelets">Platelets:</label>
-            <input type="number" id="platelets" name="platelets" step="0.01" required>
+            <input type="number" id="platelets" name="platelets" step="0.01" required placeholder="Enter your platelets count">
 
             <label for="serum_creatinine">Serum Creatinine:</label>
-            <input type="number" id="serum_creatinine" name="serum_creatinine" step="0.1" required>
+            <input type="number" id="serum_creatinine" name="serum_creatinine" step="0.1" required placeholder="Enter your serum creatinine level">
 
             <label for="serum_sodium">Serum Sodium:</label>
-            <input type="number" id="serum_sodium" name="serum_sodium" required>
+            <input type="number" id="serum_sodium" name="serum_sodium" required placeholder="Enter your serum sodium level">
 
             <label for="sex">Sex:</label>
-            <select id="sex" name="sex">
+            <select id="sex" name="sex" required>
+                <option value="" disabled selected>Select your sex</option>
                 <option value="1">Male</option>
                 <option value="0">Female</option>
             </select>
 
             <label for="smoking">Do you Smoke?</label>
-            <select id="smoking" name="smoking">
+            <select id="smoking" name="smoking" required>
+                <option value="" disabled selected>Select if you smoke</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
 
-            <label for="time">Time:</label>
-            <input type="number" id="time" name="time" required>
+            <label for="time">Observation Time (days):</label>
+            <input type="number" id="time" name="time" required placeholder="Enter observation time in days">
 
             <button type="submit">Predict</button>
         </form>
